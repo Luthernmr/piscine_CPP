@@ -12,20 +12,18 @@
 
 #include <cctype>
 #include <iostream>
-#include "Account.hpp"
 using namespace std;
 
 int main(int argc, char **argv)
 {
 	int i;
 	int j;
-	char *temp;
 
 	i = 1; 
 	j = 0;
 	if (argc == 1) 
 	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	}
 	else
 	{
@@ -34,12 +32,12 @@ int main(int argc, char **argv)
 			j = 0;
 			while (argv[i][j])
 			{
-				cout << (char) toupper(argv[i][j]);
+				std::cout << (char) toupper(argv[i][j]);
 				j++;
 			}
-			cout << " ";
 			i++;
 		}
+		std::cout << std::endl;
 
 	}
 }

@@ -1,0 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/23 00:13:43 by lnemor            #+#    #+#             */
+/*   Updated: 2022/07/23 00:13:43 by lnemor           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(std::string name) : _Name(name)
+{
+	std::cout << "Constructor Claptrap Called" << std::endl;
+}
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Deconstructor Claptrap Called" << std::endl;
+}
+
+void ClapTrap::attack(const std::string &target)
+{
+	if (_Energy >= 1 && _Hit >=1)
+	{
+		std::cout << _Name << " Attack " << target << " causing " << _Attack << " poit of danage" << std::endl;
+		_Energy -= 1;
+	}
+	else
+	{
+		std::cout << _Name << " is actually dead or no Energy to do something" << std::endl;
+	}
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	if (_Hit >=1)
+	{
+		std::cout << _Name << " took " << amount << " damage point" << std::endl;;
+		_Hit -= amount;
+	}
+	else
+	{
+		std::cout << _Name << " is actually dead" << std::endl;
+	}
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	if (_Energy >= 1 && _Hit >=1)
+	{
+		std::cout << _Name << " be repaired of " << amount << " hit point " << std::endl;
+		_Hit += amount;
+		_Energy -= 1;
+	}
+	else
+	{
+		std::cout << _Name << " is actually dead or no Energy to do something " << std::endl;
+	}
+}
+
+int	ClapTrap::getHit(){return(_Hit);}
+void ClapTrap::setHit(int amount)
+{
+	_Hit = amount;
+}
+
+int	ClapTrap::getEnergy(){return(_Energy);}
+void ClapTrap::setEnergy(int amount)
+{
+	_Energy = amount;
+}
+
+int	ClapTrap::getAttack(){return(_Attack);}
+void ClapTrap::setAttack(int amount)
+{
+	_Attack = amount;
+}

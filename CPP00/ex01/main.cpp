@@ -44,7 +44,8 @@ int main()
 		}
 		else if (s.compare("SEARCH") == 0)
 			repertoire.search(contact_set - 1);
-		std::cout << nb_of_contact;
+		else if (s.compare("EXIT") == 0)
+			exit(0); // veirifierles truc a (free);
 	}
 	return (0);
 }

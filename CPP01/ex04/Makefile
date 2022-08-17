@@ -14,12 +14,9 @@ CC = c++
 
 CC_FLAGS = -Wall -Werror -Wextra
 
-NAME := test
+NAME := replacer
 
 SRCS := main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
-		Weapon.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -27,7 +24,7 @@ all : $(NAME)
 
 $(NAME):		$(addprefix objs/, $(OBJS)) Makefile
 				$(CC) $(CC_FLAGS) -o $(NAME) $(addprefix objs/, $(OBJS))
-objs/%.o:		%.cpp Makefile HumanA.hpp HumanB.hpp Weapon.hpp
+objs/%.o:		%.cpp Makefile
 					@mkdir -p objs
 					$(CC) $(CC_FLAGS) -c $< -o $@
 		
