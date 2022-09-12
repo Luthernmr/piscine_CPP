@@ -1,50 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Polymorphisme.hpp                                  :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 16:44:48 by lnemor            #+#    #+#             */
-/*   Updated: 2022/07/23 16:44:48 by lnemor           ###   ########lyon.fr   */
+/*   Created: 2022/08/30 13:30:59 by lnemor            #+#    #+#             */
+/*   Updated: 2022/08/30 13:30:59 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <cstdio>
-#include <cstdlib>
-#include <ctime>
-#include <cmath>
 
 class Animal
 {
-	protected:
+	protected :
 		std::string type;
-	public:
-		Animal();
-		~Animal();
-	virtual	void makeSound();
 	
+	public :
+		Animal();
+		Animal(const Animal &obj);
+		virtual ~Animal();
+		
+		virtual void makeSound(void) const = 0;
+		std::string getType() const;
+		Animal &operator=(const Animal &obj);
 };
-
-class Dog : public Animal
-{
-	public:
-		Dog();
-		~Dog();
-		void makeSound();
-};
-
-class Cat : public Animal
-{
-	public:
-		void makeSound();
-		Cat();
-		~Cat();
-};
-

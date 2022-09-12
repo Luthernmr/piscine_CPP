@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Polymorphisme.cpp                                  :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 16:44:34 by lnemor            #+#    #+#             */
-/*   Updated: 2022/07/23 16:44:34 by lnemor           ###   ########lyon.fr   */
+/*   Created: 2022/08/30 13:56:45 by lnemor            #+#    #+#             */
+/*   Updated: 2022/08/30 13:56:45 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Polymorphisme.hpp"
+#include "Dog.hpp"
 
-Dog::Animal()
+Dog::Dog(const Dog &obj) : Animal()
 {
-	std::cout << "Constructor Animal called" << std::cout;
+	*this = obj;
+	std::cout << "Copy Construsctor Dog called" << std::endl;
 }
 
-Animal::~Animal()
+Dog &Dog::operator=(const Dog &obj)
 {
-	std::cout << "Deconstructor Animal called" << std::cout;
+	this->type = obj.type;
+	return (*this);
 }
 
 Dog::Dog()
 {
-	std::cout << "Constructor Dog called" << std::cout;
+	this->type = "Dog";
+	std::cout << "Construsctor Dog called" << std::endl;
 }
 
 Dog::~Dog()
 {
-	std::cout << "Deconstructor Dog called" << std::cout;
+	std::cout << "Deconstrusctor Dog called" << std::endl;
 }
 
-Cat::Cat()
+void Dog::makeSound() const
 {
-	std::cout << "Constructor Cat called" << std::cout;
+	std::cout << "Wouaf" << std::endl;
 }
-
-Cat::~Cat()
-{
-	std::cout << "Deconstructor Cat called" << std::cout;
-}
-

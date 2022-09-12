@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/20 11:27:13 by lnemor            #+#    #+#             */
-/*   Updated: 2022/07/20 11:27:13 by lnemor           ###   ########lyon.fr   */
+/*   Created: 2022/08/30 17:15:29 by lnemor            #+#    #+#             */
+/*   Updated: 2022/08/30 17:15:29 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Polymorphisme.hpp"
+#pragma once
 
-int main( void )
+#include <iostream>
+
+class Brain
 {
+	public :
+		std::string ideas[100];
+		Brain();
+		~Brain();
+		Brain(const Brain &obj);
 
-}
-
+		Brain &operator=(const Brain &obj);
+		std::string *getIdeas();
+};
