@@ -81,20 +81,20 @@ void Bureaucrat::gradeDown()
 	}
 }
 
-void Bureaucrat::signForm(Form *form)
+void Bureaucrat::signForm(Form &form)
 {
 	try
 	{
-		if (form->getSign() == true)
+		if (form.getSign() == true)
 		{
-			std::cout << this->getName() << " signed " << form->getName() << std::endl;
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
 		}
 		else
-			throw Bureaucrat::GradeTooLowException();
+			throw Form::GradeTooLowException();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->getName() << " couldn't sign " << form->getName() << " " << e.what() << '\n';
+		std::cerr << this->getName() << " couldn't sign " << form.getName() << " " << e.what() << '\n';
 	}
 	
 }

@@ -34,14 +34,13 @@ class Form
 		Form(const Form &obj);
 		
 		Form	&operator=(const Form &obj);
-		void 	operator<<(const Form &obj);
 
 		const std::string	getName() const;
 		bool				getSign() const;
 		int			getGradeToSign() const;
 		int			getGradeToExec() const;
-		virtual void	createFile() const = 0;
-		void		beSigned(Bureaucrat *brc);
+		virtual void	doSomething() const = 0;
+		void		beSigned(Bureaucrat &brc);
 		void		setTarget(std::string target);
 		std::string getTarget(void) const;
 

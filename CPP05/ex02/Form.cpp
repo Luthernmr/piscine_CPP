@@ -19,10 +19,17 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 	_gradeToExec(gradeToExec)
 {
 	std::cout << "Constructor Form Called" << std::endl;
-	if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
-		throw Form::GradeTooHighException();
-	else if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
-		throw Form::GradeTooLowException();
+	try
+	{
+		if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
+			throw Form::GradeTooHighException();
+		else if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
+			throw Form::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	this->_isSigned = false;
 }
 
@@ -69,14 +76,21 @@ Form::Form(const Form &obj) :
 	*this = obj;
 }
 
-void Form::beSigned(Bureaucrat *brc)
+void Form::beSigned(Bureaucrat &brc)
 {
-	if (brc->getGrade() < 1)
-		throw Form::GradeTooHighException();
-	else if (brc->getGrade() > 150)
-		throw Form::GradeTooLowException();
-	else if (brc->getGrade() <= this->getGradeToSign())
-		this->_isSigned = true;
+	try
+	{
+		if (brc.getGrade() < 1)
+			throw Form::GradeTooHighException();
+		else if (brc.getGrade() > 150)
+			throw Form::GradeTooLowException();
+		else if (brc.getGrade() <= this->getGradeToSign())
+			this->_isSigned = true;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 std::ostream & operator<<(std::ostream &outfile, Form &obj)

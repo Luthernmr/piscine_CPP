@@ -25,30 +25,35 @@ class Bureaucrat
 		const std::string _name;
 		int 	_grade;
 	public:
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw()
-			{
-				return ("Grade too high");
-			}
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw()
-			{
-				return ("Grade too Low");
-			}
-	};
-		const std::string getName();
-		int	getGrade();
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("Grade too high");
+				}
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("Grade too Low");
+				}
+		};
+		
 		Bureaucrat(const std::string name,int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &obj);
+		
+		const std::string getName();
+		int	getGrade();
 		void gradeUp();
 		void gradeDown();
-		void signForm(Form *form);
+		void signForm(Form &form);
+		void executeForm(Form const &form);
+
+
 		Bureaucrat &operator=(const Bureaucrat &obj);
 };
 std::ostream & operator<<(std::ostream &outfile, Bureaucrat &obj);

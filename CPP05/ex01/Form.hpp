@@ -31,13 +31,12 @@ class Form
 		Form(const Form &obj);
 		
 		Form	&operator=(const Form &obj);
-		void 	operator<<(const Form &obj);
 
 		const std::string	getName() const;
 		bool				getSign() const;
 		int			getGradeToSign() const;
 		int			getGradeToExec() const;
-		void		beSigned(Bureaucrat *brc);
+		void		beSigned(Bureaucrat &brc);
 	
 	class GradeTooHighException : public std::exception
 	{

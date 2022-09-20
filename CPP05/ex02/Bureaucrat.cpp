@@ -84,12 +84,40 @@ void Bureaucrat::gradeDown()
 	
 }
 
-void Bureaucrat::signForm(Form *form)
+void Bureaucrat::signForm(Form &form)
 {
-	if (form->getSign() == true)
-		std::cout << this->getName() << "signed " << form->getName() << std::endl;
-	else
-		std::cout << this->getName() << "could not sign " << form->getName() << "because form =" << form->getSign() ;
+	try
+	{
+		if (form.getSign() == true)
+		{
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		}
+		else
+			throw Form::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << form.getName() << " " << e.what() << '\n';
+	}
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		if (this->getGrade() < form.getGradeToExec())
+		{
+			form.doSomething();
+			std::cerr << this->getName() << " executed " << form.getName() << std::endl;
+		}
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " can't execute form because "<< e.what() << std::endl;
+	}
+	
 }
 
 std::ostream & operator<<(std::ostream &outfile, Bureaucrat &obj)

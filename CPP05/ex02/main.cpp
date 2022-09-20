@@ -12,9 +12,20 @@
 
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	ShrubberyCreationForm un("test");
-	un.createFile();
+	ShrubberyCreationForm formShrub("test");
+	RobotomyRequestForm formRobo("robot");
+	PresidentialPardonForm formPresi("presid");
+	Bureaucrat Bur1("bob", 15);
+
+	formShrub.doSomething();
+	formRobo.doSomething();
+	formPresi.doSomething();
+	Bur1.executeForm(formRobo);
+	formRobo.beSigned(Bur1);
+	Bur1.signForm(formRobo);
 }

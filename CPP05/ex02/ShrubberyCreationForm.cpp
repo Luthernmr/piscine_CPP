@@ -6,7 +6,7 @@
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 18:49:33 by lnemor            #+#    #+#             */
-/*   Updated: 2022/09/07 12:29:47 by lnemor           ###   ########lyon.fr   */
+/*   Updated: 2022/09/20 21:29:05 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 
 
-void ShrubberyCreationForm::createFile() const
+void ShrubberyCreationForm::doSomething() const
 {
 	std::ofstream outfile;
 	
-	outfile.open((this->getTarget() + "_shrubbery"),  std::ofstream::trunc);
+outfile.open((this->getTarget() + "_shrubbery").c_str(),  std::ios_base::app);
 outfile << "	             ." << std::endl;
 outfile << "          \\  :  / " << std::endl;
 outfile << "           ' _ '" << std::endl;

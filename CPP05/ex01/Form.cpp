@@ -77,15 +77,15 @@ Form::Form(const Form &obj) :
 	*this = obj;
 }
 
-void Form::beSigned(Bureaucrat *brc)
+void Form::beSigned(Bureaucrat &brc)
 {
 	try
 	{
-		if (brc->getGrade() < 1)
+		if (brc.getGrade() < 1)
 			throw Form::GradeTooHighException();
-		else if (brc->getGrade() > 150)
+		else if (brc.getGrade() > 150)
 			throw Form::GradeTooLowException();
-		else if (brc->getGrade() <= this->getGradeToSign())
+		else if (brc.getGrade() <= this->getGradeToSign())
 			this->_isSigned = true;
 	}
 	catch(const std::exception& e)
