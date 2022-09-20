@@ -53,6 +53,7 @@ std::string Contact::GetDarkestSecret() const{
 }
 
 Contact::Contact(void){
+	this->SetId(0);
 	std::cout << "constructeur Contact called" << std::endl;
 	return;
 }

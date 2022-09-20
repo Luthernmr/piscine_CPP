@@ -12,7 +12,8 @@
 
 #include "Zombie.hpp"
 
-Zombie Zombie::newZombie(std::string name){
-	this->_name = name;
-	return (*this);
+Zombie* newZombie(std::string name)
+{
+	Zombie* test =  new Zombie(name);
+	return (test);
 }

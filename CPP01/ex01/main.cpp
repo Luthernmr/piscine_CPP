@@ -12,10 +12,26 @@
 
 #include "Zombie.hpp"
 
-int main()
+int    main(void)
 {
-	Zombie *test;
+    Zombie*    neganWalkers;
+    Zombie*    rickWalkers;
+    int        i;
+    int        saviorsAmount;
+    int        survivorsAmount;
 
-	test = zombieHorde(8, "luher");
-	delete [] test;
+    i = 0;
+    saviorsAmount = 4;
+    survivorsAmount = 6;
+    neganWalkers = zombieHorde(saviorsAmount, "Savior");
+    rickWalkers = zombieHorde(survivorsAmount, "Survivor");
+    while (i < saviorsAmount)
+        neganWalkers[i++].announce();
+    i = 0;
+    while (i < survivorsAmount)
+        rickWalkers[i++].announce();
+    delete []neganWalkers;
+    delete []rickWalkers;
+
+    return (0);
 }

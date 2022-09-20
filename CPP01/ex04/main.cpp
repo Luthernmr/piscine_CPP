@@ -23,22 +23,20 @@ using namespace std;
 
 int	main(int ac, char **av)
 {
+	if (ac != 4)
+	{
+		std::cout << "3 arguemts needed" << std::endl;
+		return (-1);
+	}
 	std::ifstream infile;
 	std::ofstream outfile;
-	std::string s1;
-	std::string s2;
-	std::string filename;
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+	std::string filename = av[1];
 	std::string str_looked;
 	std::size_t found_pos;
 
 	(void)av;
-	if (ac > 1)
-	{
-		std::cout << "Don't need arguments !" << std::endl;
-		return (-1);
-	}
-	std::cout << "File to read : ";
-	std::cin >> filename;
 	infile.open(filename);
 	if (infile.fail())
 	{
@@ -53,21 +51,19 @@ int	main(int ac, char **av)
 		infile.close();
 		return(-1);
 	}
-	std::cout << "find : " ;
-	std::cin >> s1;
-	std::cout << "and replace by : " ;
-	std::cin >> s2;
 	while (getline(infile, str_looked))
 	{
-		std::cout << str_looked << std::endl;
-		found_pos = str_looked.find(s1);
-		if (found_pos != (size_t)-1)
+		while ((found_pos = str_looked.find(s1)) != std::string::npos)
 		{
-			std::cout << found_pos << std::endl;
-			str_looked.erase(found_pos, s1.length());
-			str_looked.insert(found_pos, s2);
+			if (found_pos != (size_t)-1)
+			{
+				str_looked.erase(found_pos, s1.length());
+				str_looked.insert(found_pos, s2);
+				found_pos =  str_looked.find(s1, (found_pos + s1.length()));
+				std::cout << found_pos << std::endl;
+			}
 		}
-		outfile << str_looked;
+		outfile << str_looked << std::endl;
 	}
 	infile.close();
 	outfile.close();

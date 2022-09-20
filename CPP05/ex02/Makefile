@@ -1,14 +1,10 @@
 CC = c++
 
-CC_FLAGS = -Wall -Werror -Wextra
+CC_FLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME := Form
 	
-SRCS := Bureaucrat.cpp \
-		Form.cpp \
-		RobotomyRequestForm.cpp \
-		ShrubberyCreationForm.cpp \
-		main.cpp \
+SRCS := $(shell find . -type f -name "*.cpp")
 
 OBJS := $(SRCS:.cpp=.o)
 
@@ -16,7 +12,7 @@ all : $(NAME)
 
 $(NAME):		$(addprefix objs/, $(OBJS)) Makefile
 			$(CC) $(CC_FLAGS) -o $(NAME) $(addprefix objs/, $(OBJS))
-objs/%.o:		%.cpp Makefile Bureaucrat.hpp Form.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+objs/%.o:		%.cpp Makefile $(shell find . -type f -name "*.hpp")
 				@mkdir -p objs
 					$(CC) $(CC_FLAGS) -c $< -o "$@"
 

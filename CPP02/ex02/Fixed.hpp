@@ -46,7 +46,7 @@ class Fixed
 		int operator <= (const Fixed &E_obj) const;
 		int operator == (const Fixed &E_obj) const;
 		int operator != (const Fixed &E_obj) const;
-												// Le (deuxième) constspécificateur garantit que l'appel de la méthode ne modifiera pas les membres de l'instance				
+												// Le (deuxième) const spécificateur garantit que l'appel de la méthode ne modifiera pas les membres de l'instance				
 		Fixed operator + (const Fixed &E_obj) const;
 		Fixed operator - (const Fixed &E_obj) const;
 		Fixed operator * (const Fixed &E_obj) const;

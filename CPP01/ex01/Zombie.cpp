@@ -12,7 +12,7 @@
 
 #include "Zombie.hpp"
 
-void Zombie::annouce(){
+void Zombie::announce(){
 	if (this->_name.compare("Foo") != 0)
 		std::cout << "<" << this->_name << ">: " << "BraiiiiiiinnnzzzZ..." << std::endl;
 	else

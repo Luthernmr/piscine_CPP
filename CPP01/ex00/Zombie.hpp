@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef Contact_HPP
-# define Contact_HPP
 #include <iostream>
 
 class Zombie {
@@ -22,12 +20,11 @@ class Zombie {
 	
 	public:
 
-		void annouce(void);
-		Zombie newZombie(std::string name);
-		void randomChump( std::string name );
+		void announce(void);
 		
-		Zombie(void);
+		Zombie(std::string name);
 		~Zombie(void);
 };
 
-#endif
+Zombie* newZombie(std::string name);
+void randomChump( std::string name );

@@ -12,11 +12,19 @@
 
 #include "Zombie.hpp"
 
-int main()
+int    main(void)
 {
-	Zombie uno;
-	Zombie deux;
-	
-	uno.randomChump("Foo");
-	deux.randomChump("lulu");
+    Zombie* walker;
+
+	Zombie* FooZombie;
+
+	FooZombie = newZombie("Foo");
+	FooZombie->announce();
+    walker = newZombie("Alice");
+    walker->announce();
+    randomChump("Bob");
+	randomChump("Foo");
+    delete walker;
+	delete FooZombie;
+    return (0);
 }

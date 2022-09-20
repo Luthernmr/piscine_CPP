@@ -12,7 +12,7 @@
 
 #include "Zombie.hpp"
 
-void Zombie::randomChump(std::string name){
-	newZombie(name);
-	annouce();
+void randomChump(std::string name){
+	Zombie *test = newZombie(name);
+	test->announce();
 }

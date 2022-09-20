@@ -21,14 +21,10 @@ Bureaucrat::Bureaucrat(const std::string name,int grade): _name(name), _grade(gr
 		else if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
 	}
-	catch(GradeTooHighException())
+	catch(std::exception & e)
 	{
-		std::cerr << GradeTooHighException().what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
-	catch(GradeTooLowException())
-	{
-		std::cerr << GradeTooLowException().what() << '\n';
-	} 
 	std::cout << "Construcor Bureaucrat called" << std::endl;
 }
 
@@ -60,15 +56,29 @@ const std::string Bureaucrat::getName()
 void Bureaucrat::gradeUp()
 {
 	this->_grade--;
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+	try
+	{
+		if (this->_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::gradeDown()
 {
 	this->_grade++;
-	if (this->_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+	try
+	{
+		if (this->_grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 void Bureaucrat::signForm(Form *form)

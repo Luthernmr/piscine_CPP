@@ -62,13 +62,13 @@ void	PhoneBook::add( int i ) {
 			std::getline (std::cin, s);
 			if (s.length())
 			{
-				this->contact[i].SetPhoneNumber(s);
+				this->contact[i].SetDarkestSecret(s);
 				break;
 			}
 	}
 }
 
-void PhoneBook::search(int set) {
+void PhoneBook::search() {
 	
 	std::string s (44, '-');
 	std::cout << std::setw(10) << "id" << "|";
@@ -78,8 +78,8 @@ void PhoneBook::search(int set) {
 	std::cout << std::endl;
 	std::cout << s;
 	std::cout << std::endl;
-	
-	for (int i = 0; i <= set; i++) {
+	int	i = 0;
+	while (i < 8 && this->contact[i].GetFirstName().length() > 0) {
 
 		std::cout << std::setw(10) << this->contact[i].GetId() << "|";
 		if (this->contact[i].GetFirstName().length() > 10)
@@ -97,8 +97,13 @@ void PhoneBook::search(int set) {
 		else
 			std::cout << std::setw(10) << this->contact[i].GetNickName() << "|";
 		std::cout << std::endl;
+		i++;
 	}
-	
+	if (i == 0)
+	{
+		std::cout << "No Contact set, Please ADD contact first" << std ::endl;
+		return;
+	}
 	while (std::cin)
 	{
 		std::string s;
@@ -107,9 +112,9 @@ void PhoneBook::search(int set) {
 		if (s.length() < 2 && (s[0] >= '0' && s[0] <= '7'))
 		{
 			int i = stoi(s);
-			if (i > set)
+			if (this->contact[i].GetFirstName().length() == 0)
 			{
-				std::cout << "Contact not set" << std ::endl;
+				std::cout << "Please enter valid ID" << std ::endl;
 				continue;
 			}
 			std::cout << "id: " << this->contact[i].GetId() << std::endl;
@@ -117,7 +122,7 @@ void PhoneBook::search(int set) {
 			std::cout << "Lastname: " << this->contact[i].GetLastName() << std::endl;
 			std::cout << "Nickname: " << this->contact[i].GetNickName() << std::endl;
 			std::cout << "PhoneNumber: " << this->contact[i].GetPhoneNumber() << std::endl;
-			std::cout << "PhoneNumber: " << this->contact[i].GetDarkestSecret() << std::endl;
+			std::cout << "DarkestSecret: " << this->contact[i].GetDarkestSecret() << std::endl;
 			break;
 		}
 		else

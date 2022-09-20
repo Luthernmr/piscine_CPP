@@ -15,13 +15,13 @@
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
-	this->stock_float = 0;
+	this->_stock_float = 0;
 }
 
 Fixed::Fixed(const Fixed &Fixed_copy)
 {
 	std::cout << "copy constructor called" << std::endl;
-	this->stock_float = Fixed_copy.getRawBits();
+	this->_stock_float = Fixed_copy.getRawBits();
 }
 
 Fixed::~Fixed()
@@ -32,16 +32,16 @@ Fixed::~Fixed()
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBit function called" << std::endl;
-	return(this->stock_float);
+	return(this->_stock_float);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBit function called" << std::endl;
-	this->stock_float = raw;
+	this->_stock_float = raw;
 }
 void Fixed::operator=(const Fixed &Fixed_copy)
 {
 	std::cout << "Copy assignement operator called" << std::endl;
-	this->stock_float = Fixed_copy.getRawBits();
+	this->_stock_float = Fixed_copy.getRawBits();
 }

@@ -25,5 +25,4 @@ int main()
 	std::cout << "Value : " << str << std::endl;
 	std::cout << "Value : " << *stringPTR << std::endl;
 	std::cout << "Value : " << stringREF << std::endl;
-	
 }

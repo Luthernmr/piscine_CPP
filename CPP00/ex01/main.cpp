@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/Account.hpp"
 #include "includes/Contact.hpp"
 #include "includes/PhoneBook.hpp"
 #include <iostream>
@@ -25,7 +24,6 @@ int main()
 	
 	PhoneBook repertoire;
 	int nb_of_contact = 0;
-	int	contact_set = 0;
 	while (std::cin)
 	{
 		std::cout << "enter a command: ";
@@ -33,19 +31,17 @@ int main()
 		if (s.compare("ADD") == 0)
 		{
 			
-			if (nb_of_contact - 1 == 7)
+			if (nb_of_contact > 7)
 			{
 				nb_of_contact = 0;
-				contact_set = 7;
 			}
 			repertoire.add(nb_of_contact);
 			nb_of_contact++;
-			contact_set++;
 		}
 		else if (s.compare("SEARCH") == 0)
-			repertoire.search(contact_set - 1);
+			repertoire.search();
 		else if (s.compare("EXIT") == 0)
-			exit(0); // veirifierles truc a (free);
+			exit(0);
 	}
 	return (0);
 }

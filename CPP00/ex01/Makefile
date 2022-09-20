@@ -1,8 +1,8 @@
 CC = c++
 
-CC_FLAGS = -Wall -Werror -Wextra
+CC_FLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME := 
+NAME := Phonebook
 
 SRCS := contact.cpp \
 		main.cpp \
@@ -14,7 +14,7 @@ all : $(NAME)
 
 $(NAME):		$(addprefix objs/, $(OBJS)) Makefile
 				$(CC) $(CC_FLAGS) -o $(NAME) $(addprefix objs/, $(OBJS))
-objs/%.o:		%.cpp Makefile includes/Account.hpp includes/Contact.hpp includes/PhoneBook.hpp
+objs/%.o:		%.cpp Makefile includes/Contact.hpp includes/PhoneBook.hpp
 				@mkdir -p objs
 					$(CC) $(CC_FLAGS) -c $< -o "$@"
 		

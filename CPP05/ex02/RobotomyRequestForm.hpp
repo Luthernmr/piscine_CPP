@@ -4,15 +4,15 @@
 #include <iostream>
 #include "Form.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public Form
 {
-public:
-    RobotomyRequestForm();
-    ~RobotomyRequestForm();
-    RobotomyRequestForm(const RobotomyRequestForm &obj);
-
-    RobotomyRequestForm & operator=(const RobotomyRequestForm &obj);
+	public:
+		RobotomyRequestForm();
+	    ~RobotomyRequestForm();
+	    RobotomyRequestForm(const RobotomyRequestForm &obj);
 	
-private:
+	    RobotomyRequestForm & operator=(const RobotomyRequestForm &obj);
+		
+	private:
 
 };

@@ -14,10 +14,8 @@
 
 int main()
 {
-	Bureaucrat test("luther", 150);
+	Bureaucrat test("luther", 0);
 	std::cout << test.getGrade() << std::endl;
 	std::cout << test.getName() << std::endl;
 	test.gradeUp();
-	test.gradeDown();
-	test << test;
 }

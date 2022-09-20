@@ -61,19 +61,16 @@ void Fixed::operator=(const Fixed &Fixed_copy)
 
 float Fixed::toFloat(void) const
 {
-	//std::cout << "toFloat function called" << std::endl;
 	return ((_stock_float_fixe / (float)(1 << _stock_bits)));
 }
 
 int Fixed::toInt(void) const
 {
-	//std::cout << "toInt function called" << std::endl;
 	return (_stock_float_fixe >> _stock_bits);
 }
 
 std::ostream & operator << (std::ostream &outfile, Fixed const &Fixed_copy)
 {
-	//std::cout << "insert File assignement operator called" << std::endl;
 	outfile <<  Fixed_copy.toFloat();
 	return (outfile);
 }

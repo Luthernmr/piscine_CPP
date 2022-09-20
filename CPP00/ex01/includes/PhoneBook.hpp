@@ -26,7 +26,7 @@ class PhoneBook {
 		~PhoneBook(void);
 		
 		void add(int);
-		void search(int);
+		void search();
 		
 	private:
 		Contact contact[8];

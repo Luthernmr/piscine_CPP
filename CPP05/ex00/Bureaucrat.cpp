@@ -21,14 +21,10 @@ Bureaucrat::Bureaucrat(const std::string name,int grade): _name(name), _grade(gr
 		else if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
 	}
-	catch(GradeTooHighException())
+	catch(std::exception & e)
 	{
-		std::cerr << GradeTooHighException().what() << '\n';
+		std::cerr << e.what() << '\n';
 	}
-	catch(GradeTooLowException())
-	{
-		std::cerr << GradeTooLowException().what() << '\n';
-	} 
 	std::cout << "Construcor Bureaucrat called" << std::endl;
 }
 
@@ -60,15 +56,29 @@ const std::string Bureaucrat::getName()
 void Bureaucrat::gradeUp()
 {
 	this->_grade--;
-	if (this->_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+	try
+	{
+		if (this->_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void Bureaucrat::gradeDown()
 {
-	this->_grade++;
-	if (this->_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+	this->_grade = this->_grade + 1;
+	try
+	{
+		if (this->_grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 std::ostream & operator<<(std::ostream &outfile, Bureaucrat &obj)

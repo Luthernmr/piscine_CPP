@@ -20,12 +20,12 @@ using namespace std;
 class Fixed
 {
 	private:
-		int	stock_float;
-		const int static stock_bits = 8;
+		int	_stock_float;
+		const int static _stock_bits = 8;
 	public:
 		Fixed();
 		~Fixed();
-		Fixed(const Fixed &Fixed_copy);
+		Fixed(const Fixed *Fixed_copy);
 		void operator=(const Fixed &Fixed_copy);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);

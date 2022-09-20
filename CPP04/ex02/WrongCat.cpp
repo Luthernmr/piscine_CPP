@@ -30,7 +30,7 @@ WrongCat & WrongCat::operator=(const  WrongCat &obj)
 	std::cout << "Copy Construsctor called" << std::endl;
 	*this = obj;
 }
- WrongCat::~ WrongCat()
+ WrongCat::~WrongCat()
 {
 	std::cout << "Deconstrusctor called" << std::endl;
 }
