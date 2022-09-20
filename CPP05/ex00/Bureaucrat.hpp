@@ -43,7 +43,6 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &obj);
 		void gradeUp();
 		void gradeDown();
-		void signForm();
 		Bureaucrat &operator=(const Bureaucrat &obj);
 };
 

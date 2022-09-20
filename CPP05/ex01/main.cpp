@@ -22,7 +22,12 @@ int main()
 	std::cout << test;
 
 	Form form1("form1", 8, 5);
-	std::cout << form1 ;
+	std::cout << std::endl;
+	std::cout << form1;
+	test.signForm(&form1);
+	std::cout << std::endl;
 	form1.beSigned(&test);
 	std::cout << form1;
+	test.signForm(&form1);
+	std::cout << std::endl;
 }

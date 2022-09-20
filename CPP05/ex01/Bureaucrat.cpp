@@ -83,13 +83,24 @@ void Bureaucrat::gradeDown()
 
 void Bureaucrat::signForm(Form *form)
 {
-	if (form->getSign() == true)
-		std::cout << this->getName() << "signed" << form->getName() << std::endl;
+	try
+	{
+		if (form->getSign() == true)
+		{
+			std::cout << this->getName() << " signed " << form->getName() << std::endl;
+		}
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << form->getName() << " " << e.what() << '\n';
+	}
+	
 }
 
 std::ostream & operator<<(std::ostream &outfile, Bureaucrat &obj)
-{
+{	
 	outfile << obj.getName() << ", " << "Bureaucrat grade : " << obj.getGrade() << std::endl;
 	return (outfile);
 }
-//Verier l'operator << 
