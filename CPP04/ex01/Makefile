@@ -18,7 +18,7 @@ all : $(NAME)
 
 $(NAME):		$(addprefix objs/, $(OBJS)) Makefile
 			$(CC) $(CC_FLAGS) -o $(NAME) $(addprefix objs/, $(OBJS))
-objs/%.o:		%.cpp Makefile Animal.hpp Brain.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+objs/%.o:		%.cpp Makefile Animal.hpp Brain.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp Color.hpp
 				@mkdir -p objs
 					$(CC) $(CC_FLAGS) -c $< -o "$@"
 

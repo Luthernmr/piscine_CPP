@@ -22,6 +22,20 @@ ScavTrap::~ScavTrap()
 	std::cout << "Deconstructor ScavTrap called " << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj._Name)
+{
+	*this = obj;
+	std::cout << "Constructor Copy ScavTrap called " << std::endl;
+}
+ScavTrap & ScavTrap::operator=(const ScavTrap &obj)
+{
+	this->_Attack = obj._Attack;
+	this->_Energy = obj._Energy;
+	this->_Hit = obj._Hit;
+	this->_Name = obj._Name;
+	return (*this);
+}
+
 void ScavTrap::attack(const std::string &target)
 {
 	if (_Energy >= 1 && _Hit >=1)

@@ -14,8 +14,42 @@
 
 int main()
 {
-	Bureaucrat test("luther", 0);
-	std::cout << test.getGrade() << std::endl;
-	std::cout << test.getName() << std::endl;
-	test.gradeUp();
+	try
+	{
+		Bureaucrat test("Bob", 1);
+		std::cout << test.getGrade() << std::endl;
+		std::cout << test.getName() << std::endl;
+		test.gradeUp();
+		std::cout << test.getGrade() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat test1("Pit", 150);
+		std::cout << test1.getGrade() << std::endl;
+		std::cout << test1.getName() << std::endl;
+		test1.gradeDown();
+		std::cout << test1.getGrade() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		Bureaucrat test1("Parker", 150);
+		std::cout << test1.getGrade() << std::endl;
+		std::cout << test1.getName() << std::endl;
+		test1.gradeUp();
+		std::cout << test1.getGrade() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }

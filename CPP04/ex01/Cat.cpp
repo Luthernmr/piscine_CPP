@@ -17,11 +17,6 @@ Cat &Cat::operator=(const Cat &obj)
 {
 	this->type = obj.type;
 	this->BrainCat = new Brain(*obj.BrainCat);
-	for(size_t i = 0; i < 2; i++)
-	{
-		this->BrainCat->ideas[i] = obj.BrainCat->ideas[i];
-		std::cout << "in idea :" << this->getBrain()->ideas[i] <<std::endl;
-	}
 	return (*this);
 }
 

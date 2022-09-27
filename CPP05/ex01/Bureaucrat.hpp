@@ -47,7 +47,7 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &obj);
 		void gradeUp();
 		void gradeDown();
-		void signForm(Form *form);
+		void signForm(Form &form);
 		Bureaucrat &operator=(const Bureaucrat &obj);
 };
 std::ostream & operator<<(std::ostream &outfile, Bureaucrat &obj);

@@ -14,20 +14,25 @@
 
 int main()
 {
-	Bureaucrat test("luther", 5);
-	std::cout << test;
-	test.gradeUp();
-	std::cout << test;
-	test.gradeDown();
-	std::cout << test;
+	try
+	{
+		Bureaucrat test("brad", 15);
+		Bureaucrat boss("le boss", 1);
+		Form form1("form1", 8, 5);
+		std::cout << std::endl;
+		
+		form1.beSigned(test);
+		std::cout << form1;
+		test.signForm(form1);
+		std::cout << std::endl;
 
-	Form form1("form1", 8, 5);
-	std::cout << std::endl;
-	std::cout << form1;
-	test.signForm(&form1);
-	std::cout << std::endl;
-	form1.beSigned(&test);
-	std::cout << form1;
-	test.signForm(&form1);
-	std::cout << std::endl;
+		form1.beSigned(boss);
+		std::cout << form1;
+		boss.signForm(form1);
+		std::cout << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

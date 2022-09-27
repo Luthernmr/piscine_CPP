@@ -14,14 +14,14 @@
 
 int main( void )
 {
-	ClapTrap player("luther");
+	//ClapTrap player("luther");
 	ScavTrap player2("nemor");
 
-	player.attack("ennemie");
+	//player.attack("ennemie");
 	player2.attack("prout");
 	player2.guardGate();
 	player2.beRepaired(5);
-	player.takeDamage(2);
-	player.beRepaired(9);
+	//player.takeDamage(2);
+	//player.beRepaired(9);
 }
 

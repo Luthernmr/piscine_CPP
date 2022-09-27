@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _Name(name)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit(10), _Energy(10), _Attack(0)
 {
 	std::cout << "Constructor Claptrap Called" << std::endl;
 }
@@ -20,6 +20,21 @@ ClapTrap::ClapTrap(std::string name) : _Name(name)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Deconstructor Claptrap Called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &obj)
+{
+	*this = obj;
+	std::cout << "Constructor Copy Claptrap Called" << std::endl;
+}
+
+ClapTrap & ClapTrap::operator=(const ClapTrap &obj)
+{
+	this->_Attack = obj._Attack;
+	this->_Energy = obj._Energy;
+	this->_Hit = obj._Hit;
+	this->_Name = obj._Name;
+	return (*this);
 }
 
 void ClapTrap::attack(const std::string &target)

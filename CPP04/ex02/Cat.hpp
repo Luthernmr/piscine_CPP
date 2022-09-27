@@ -16,6 +16,8 @@
 
 class Cat : public Animal
 {
+	private:
+		Brain *BrainCat;
 	public:
 		Cat(const Cat &obj);
 		Cat();
@@ -23,6 +25,7 @@ class Cat : public Animal
 
 		void makeSound(void) const;
 		Cat &operator=(const Cat &obj);
+		Brain *getBrain();
 };
 
 

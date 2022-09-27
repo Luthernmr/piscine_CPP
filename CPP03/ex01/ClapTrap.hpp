@@ -25,14 +25,16 @@ class ClapTrap
 {
 	protected :
 		std::string  _Name;
-		int	_Hit = 10;
-		int	_Energy = 10;
-		int	_Attack = 5;
+		int	_Hit;
+		int	_Energy;
+		int	_Attack;
 
 	public :
 		ClapTrap(std::string name);
 		~ClapTrap();
 
+		ClapTrap (const ClapTrap &obj);
+		ClapTrap & operator=(const ClapTrap &obj);
 		void attack(const std::string &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
+/*   By: lnemor <lnemor@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 21:08:28 by lnemor            #+#    #+#             */
-/*   Updated: 2022/09/20 21:47:01 by lnemor           ###   ########lyon.fr   */
+/*   Updated: 2022/09/21 13:20:06 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,4 @@ void RobotomyRequestForm::doSomething() const
 		std::cout << this->getTarget() << " has been Robotomized SUCCESSFULLY" << std::endl;
 	else 
 		std::cout << "Operation Failed" << std::endl;
-}	
+}

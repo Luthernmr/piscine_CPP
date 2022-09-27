@@ -21,18 +21,18 @@ WrongCat & WrongCat::operator=(const  WrongCat &obj)
 
  WrongCat:: WrongCat()
 {
-	this->type = " WrongCat";
-	std::cout << "Construsctor called" << std::endl;
+	this->type = "WrongCat";
+	std::cout << "Construsctor WrongCat called" << std::endl;
 }
 
  WrongCat:: WrongCat(const  WrongCat &obj) : WrongAnimal()// il préfere les déclarations explicite de constructeur parent
 {
-	std::cout << "Copy Construsctor called" << std::endl;
+	std::cout << "Copy Construsctor WrongCat called" << std::endl;
 	*this = obj;
 }
- WrongCat::~WrongCat()
+ WrongCat::~ WrongCat()
 {
-	std::cout << "Deconstrusctor called" << std::endl;
+	std::cout << "Deconstrusctor WrongCat called" << std::endl;
 }
 
 void  WrongCat::makeSound() const

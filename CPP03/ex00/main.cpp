@@ -18,6 +18,11 @@ int main( void )
 
 	player.attack("ennemie");
 	player.takeDamage(2);
+	player.takeDamage(2);
+	//player.takeDamage(2);
+	//player.takeDamage(2);
+	//player.takeDamage(2);
+	//player.takeDamage(2);
 	player.beRepaired(9);
 }
 

@@ -16,12 +16,14 @@
 Cat &Cat::operator=(const Cat &obj)
 {
 	this->type = obj.type;
+	this->BrainCat = new Brain(*obj.BrainCat);
 	return (*this);
 }
 
 Cat::Cat()
 {
 	this->type = "Cat";
+	this->BrainCat = new Brain();
 	std::cout << "Construsctor Cat called" << std::endl;
 }
 
@@ -33,9 +35,15 @@ Cat::Cat(const Cat &obj) : Animal()// il préfere les déclarations explicite de
 Cat::~Cat()
 {
 	std::cout << "Deconstrusctor Cat called" << std::endl;
+	delete this->BrainCat;
 }
 
 void Cat::makeSound() const
 {
 	std::cout << "Miaou" << std::endl;
+}
+
+Brain* Cat::getBrain()
+{
+	return(this->BrainCat);
 }

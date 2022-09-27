@@ -14,16 +14,26 @@
 
 FragTrap::FragTrap(std::string name):ClapTrap(name)
 {
-	setHit(100);
-	setEnergy(100);
-	setAttack(30);
 	std::cout << "Constructor FragTrap called " << std::endl;
-
 }
 
 FragTrap::~FragTrap()
 {
 	std::cout << "Deconstructor FragTrap called " << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &obj) : ClapTrap(obj._Name)
+{
+	*this = obj;
+	std::cout << "Constructor Copy FragTrap called " << std::endl;
+}
+FragTrap & FragTrap::operator=(const FragTrap &obj)
+{
+	this->_Attack = obj._Attack;
+	this->_Energy = obj._Energy;
+	this->_Hit = obj._Hit;
+	this->_Name = obj._Name;
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys()

@@ -19,18 +19,12 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExec)
 	_gradeToExec(gradeToExec)
 {
 	std::cout << "Constructor Form Called" << std::endl;
-	try
-	{
-		if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
-			throw Form::GradeTooHighException();
-		else if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
-			throw Form::GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
+
+	if (this->_gradeToExec > 150 || this->_gradeToSign > 150)
+		throw Form::GradeTooHighException();
+	else if (this->_gradeToExec < 1 || this->_gradeToSign < 1)
+		throw Form::GradeTooLowException();
+		
 	this->_isSigned = false;
 }
 
@@ -92,7 +86,6 @@ void Form::beSigned(Bureaucrat &brc)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 }
 
 std::ostream & operator<<(std::ostream &outfile, Form &obj)

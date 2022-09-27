@@ -13,6 +13,8 @@
 #pragma once
 
 #include <iostream>
+#include "Brain.hpp"
+#include "Color.hpp"
 
 class Animal
 {

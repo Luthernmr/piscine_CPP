@@ -19,7 +19,7 @@ int main( void )
 	FragTrap player3("gregoir");
 	player.attack("ennemie");
 	player2.attack("prout");
-	player3.attack("enemi2");
+	player3.attack("enemie2");
 	player3.takeDamage(8);
 	std::cout << "HIT " <<player3.getHit() << std::endl;
 	std::cout << "ENERGY "  << player3.getEnergy() << std::endl;
