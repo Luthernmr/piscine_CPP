@@ -6,29 +6,12 @@
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:12:11 by lnemor            #+#    #+#             */
-/*   Updated: 2022/09/27 15:24:35 by lnemor           ###   ########lyon.fr   */
+/*   Updated: 2022/09/27 23:26:07 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-template <class T>
-T max(T a, T b)
-{
-	if (a > b)
-		return(a);
-	else
-		return(b);
-}
-
-template <class T>
-T min(T a, T b)
-{
-	if (a < b)
-		return(a);
-	else
-		return(b);
-}
+#include "whatever.hpp"
 
 template <class T>
 void swap(T & a, T & b)
