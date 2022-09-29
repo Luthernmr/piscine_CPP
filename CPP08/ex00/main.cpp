@@ -5,39 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 16:12:23 by lnemor            #+#    #+#             */
-/*   Updated: 2022/09/28 17:16:50 by lnemor           ###   ########lyon.fr   */
+/*   Created: 2022/09/29 14:47:21 by lnemor            #+#    #+#             */
+/*   Updated: 2022/09/29 16:41:45 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "easyfind.hpp"
 
-#include "iter.hpp"
-
-
-void increment(int &e)
-{
-	e++;
-}
-
-void appendS(std::string &s)
-{
-	s.append("(oublie)");
-}
 
 int main()
 {
-	int tab[5] = {1,2,3,4,5};
-	iter(tab, (size_t)5, display);
-	std::cout << "\n";
-	iter(tab, (size_t)5, increment);
-	iter(tab, (size_t)5, display);
-	
-	std::cout << "\n\n";
-	
-	std::string tab2[5] = {"a", "b", "c", "d", "e"};
-	iter(tab2, (size_t)5, display);
-	iter(tab2, (size_t)5, appendS);
-	std::cout << "\n";
-	iter(tab2, (size_t)5, display);
-	
+	try
+	{
+		vector<int> test(5);
+		test[0] = 1;
+		test[1] = 3;
+		test[2] = 3;
+		easyfind(test, 3);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		vector<int> test(5);
+		test[0] = 1;
+		test[1] = 3;
+		test[2] = 3;
+		easyfind(test, -2);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

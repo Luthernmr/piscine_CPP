@@ -6,21 +6,12 @@
 /*   By: lnemor <lnemor.student@42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:12:11 by lnemor            #+#    #+#             */
-/*   Updated: 2022/09/27 23:26:07 by lnemor           ###   ########lyon.fr   */
+/*   Updated: 2022/09/28 16:05:01 by lnemor           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "whatever.hpp"
-
-template <class T>
-void swap(T & a, T & b)
-{
-	T tmp;
-	tmp = a;
-	a = b;
-	b = tmp;
-}
 
 int main( void ) {
 int a = 2;
